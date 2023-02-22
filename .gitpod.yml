@@ -9,10 +9,8 @@ ports:
   - port: 9500-9999
     onOpen: ignore
 
-
 vscode:
   extensions:
     - vortizhe.simple-ruby-erb
     - mbessey.vscode-rufo
     - aliariff.vscode-erb-beautify
-    

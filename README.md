@@ -16,8 +16,8 @@ We're going to practice in the context of our familiar movie-related domain —�
 
 We have two new visual development tools that we can visit, in addition to `/git`:
 
- - `/rails/info`: shows all visitable routes in the applications
- - `/rails/db`: shows a visual interface for the database
+- `/rails/info`: shows all visitable routes in the applications
+- `/rails/db`: shows a visual interface for the database
 
 ## Our database
 
@@ -79,13 +79,13 @@ Now, let's try these Ruby classes out. We could create a rake task, but a quicke
 
 ## Important notes about `rails console`
 
- 1. Sometimes when the output of a Ruby expression is very long, `rails console` is going to paginate it for you. You will have a `:` prompt when this is true, and you can hit <kbd>return</kbd> to scroll through line by line, or <kbd>space</kbd> to scroll through page by page.
+1.  Sometimes when the output of a Ruby expression is very long, `rails console` is going to paginate it for you. You will have a `:` prompt when this is true, and you can hit <kbd>return</kbd> to scroll through line by line, or <kbd>space</kbd> to scroll through page by page.
 
     When you reach the end of the output, you'll see `(END)`.
 
     **To get back to the regular prompt so that you can enter your next command, just hit q at any time.**
 
- 2. If you are in `rails console` and then make a change to a model (for example, you define a new method or fix a syntax error), then, annoyingly, **you have to `exit` and then start a new `rails console`** to pick up the new logic. Or, you can use the `reload!` method.
+2.  If you are in `rails console` and then make a change to a model (for example, you define a new method or fix a syntax error), then, annoyingly, **you have to `exit` and then start a new `rails console`** to pick up the new logic. Or, you can use the `reload!` method.
 
 ## Exploring the tables
 
@@ -100,14 +100,14 @@ Actor.count
 
 You'll see that the `.count` method already works, even though we didn't define it; but right now there are no rows in any of the tables. You can see what columns are in each table by:
 
- - Typing just the class name into `rails console`, e.g.
+- Typing just the class name into `rails console`, e.g.
 
-    ```
-    [2] pry(main)> Character
-    => Character(id: integer, movie_id: integer, actor_id: integer, name: string, created_at: datetime, updated_at: datetime)
-    ```
+  ```
+  [2] pry(main)> Character
+  => Character(id: integer, movie_id: integer, actor_id: integer, name: string, created_at: datetime, updated_at: datetime)
+  ```
 
- - Looking at the comments at the top of the model file, e.g. `app/models/movie.rb`. (These comments are auto-generated and kept up to date by the excellent [annotate gem](https://github.com/ctran/annotate_models).)
+- Looking at the comments at the top of the model file, e.g. `app/models/movie.rb`. (These comments are auto-generated and kept up to date by the excellent [annotate gem](https://github.com/ctran/annotate_models).)
 
 ## CRUD some records
 
@@ -185,28 +185,29 @@ Here is our target:
 
 How many years ago was "Casablanca" released?
 
- - Use the [`.where` method](https://chapters.firstdraft.com/chapters/770#where). It is everything.
- - Remember that [`.where` always returns a collection, not a single row](https://chapters.firstdraft.com/chapters/770#where-always-returns-a-collection-not-a-single-row).
- - Calculate the value dynamically (using e.g. `Time.now.year`), so that the number is always up to date.
+- Use the [`.where` method](https://chapters.firstdraft.com/chapters/770#where). It is everything.
+- Remember that [`.where` always returns a collection, not a single row](https://chapters.firstdraft.com/chapters/770#where-always-returns-a-collection-not-a-single-row).
+- Calculate the value dynamically (using e.g. `Time.now.year`), so that the number is always up to date.
 
 ### Other queries
 
- - How many movies in our table are from [before](https://chapters.firstdraft.com/chapters/770#less-than-or-greater-than) the year 2000?
-    - Displays the titles and years of the films.
- - Who is the youngest director in our table?
-    - Display the date of birth of the director. (Remember you can call `.strftime("")` on `Time`, `Date`, and `DateTime`s to format them. Tools like [strftime.net](http://strftime.net/) and [For a Good Strftime](https://www.foragoodstrftime.com/) exist to help compose the formatting string argument.)
- - How many directors in our table are less than 55 years old?
-    - Display their names and dates of birth.
- - How many films in our table were directed by Francis Ford Coppola?
-    - Display the titles and years of the films.
- - How many films did Morgan Freeman appear in?
-    - Display the titles and years of the films.
+- How many movies in our table are from [before](https://chapters.firstdraft.com/chapters/770#less-than-or-greater-than) the year 2000?
+  - Displays the titles and years of the films.
+- Who is the youngest director in our table?
+  - Display the date of birth of the director. (Remember you can call `.strftime("")` on `Time`, `Date`, and `DateTime`s to format them. Tools like [strftime.net](http://strftime.net/) and [For a Good Strftime](https://www.foragoodstrftime.com/) exist to help compose the formatting string argument.)
+- How many directors in our table are less than 55 years old?
+  - Display their names and dates of birth.
+- How many films in our table were directed by Francis Ford Coppola?
+  - Display the titles and years of the films.
+- How many films did Morgan Freeman appear in?
+  - Display the titles and years of the films.
 
 ## Drive the view templates with the data from the database
 
 Now that we've gotten our feet wet with using ActiveRecord to interact with the database, let's put it together with everything we've learned in the past — RCAV, `params`, HTML, etc — to make our app match the target.
 
 ## Specs
+
 <details>
   <summary>Click here to see names of each test</summary>
 
