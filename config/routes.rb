@@ -8,4 +8,11 @@ Rails.application.routes.draw do
 
   get("/directors/youngest", { :controller => "directors", :action => "youngest" })
 
+
+# dynamic routes
+
+get("/directors/:an_id", { :controller => "directors", :action => "director_details" })
+
+
+
 end
