@@ -30,7 +30,7 @@
     Image
   </dt>
   <dd>
-    <%= @the_director.image %>
+  <img src="http://robohash.org/<%= @the_director.image %>">
   </dd>
 
   <dt>
@@ -47,3 +47,74 @@
     <%= time_ago_in_words(@the_director.updated_at) %> ago
   </dd>
 </dl>
+
+
+<%# movie table %>
+
+<hr>
+
+<h2>Filmography</h2>
+
+<table border="1">
+  <tbody>
+
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Title
+    </th>
+
+    <th>
+      Year
+    </th>
+
+    <th>
+      Director
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @filmography.each do |film| %>
+
+  <tr>
+    <td>
+        <%= film.id %>  
+    </td>
+
+    <td>
+      <img src="https://robohash.org/<%= film.image %>?set=set4">
+    </td>
+
+    <td>
+      <%= film.title %>
+    </td>
+
+    <td>
+      <%= film.year %>
+    </td>
+
+    <td>
+
+    <% d = Director.where({ :id => film.director_id }).at(0) %>
+      <%= d.name %>
+    </td>
+
+    <td>
+      <a href="/movies/2<%= film.id%>">
+        Show details
+      </a>
+    </td>
+  </tr>
+
+    <% end %>
+
+</tbody></table>
