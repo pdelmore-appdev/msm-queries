@@ -19,6 +19,8 @@ get("/directors/:an_id", { :controller => "directors", :action => "director_deta
 
 get("/movies/:the_movie_id", { :controller => "movies", :action => "movie_details"})
 
+get("/actors/:actor_id", { :controller => "actors", :action => "actor_details" })
+
 
 
 end
