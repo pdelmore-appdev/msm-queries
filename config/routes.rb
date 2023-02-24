@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get("/movies", { :controller => "movies", :action => "index" })
 
+  get("/actors", { :controller => "actors", :action => "index" })
+
 
 # dynamic routes
 
